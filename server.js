@@ -2,13 +2,13 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-// const recipeRouter = require('./recipes/recipe-router.js');
+const recipeRouter = require('./recipes/recipe-router.js');
 
 const server = express();
 
 server.use(morgan('dev'));
 server.use(express.json());
-// server.use(`/api/recipes`, recipeRouter);
+server.use(`/api/recipes`, recipeRouter);
 server.use(helmet());
 
 server.get('/', (request, response) => {
